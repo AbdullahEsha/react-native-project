@@ -74,4 +74,10 @@ style={tw`w-full h-full`}
 ### 1\. Set Up Axios for API Calls
 
 - Use `helper/protectAdmin.tsx` to guard admin routes based on `accessToken`.
-# react-native-project
+
+### Dynamic Route Creation
+
+To handle specific, parameterized routes, dynamic routing is set up in this project. An example of this is located at `app/auth/forgotPassword/[token].tsx`, which creates a route for handling password resets based on a unique token. Here’s how it works:
+
+- **Path**: `app/auth/forgotPassword/[token].tsx`
+- **Purpose**: The `[token]` part of the path is treated as a dynamic segment. This allows the app to recognize and handle routes like `/auth/forgotPassword/someUniqueToken`.
