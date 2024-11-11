@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# React Native Project Setup and API Integration Guide
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Prerequisites
 
-## Get started
+[Node.js](https://nodejs.org/en) installed
+[Expo CLI](https://expo.dev) (installed via npx)
 
-1. Install dependencies
+## Installation
 
-   ```bash
-   npm install
-   ```
+1. Install Node.js
+   Download and install Node.js from Node.js Downloads.
 
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+2. Set Up React Native Project with Expo
+   Run the following command to create your React Native project using Expo:
 
 ```bash
-npm run reset-project
+npx create-expo-app@latest
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+For additional setup information, visit the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup)
 
-## Learn more
+3. Run the Project
+   To run the project in your browser:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm run web
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Alternatively, you can run it on an Android device:
 
-## Join the community
+1.  Install the Expo Go app on your Android device.
+2.  Link it manually or scan the QR code displayed in your terminal.
 
-Join our community of developers creating universal apps.
+## Project Structure
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project uses file-based routing, with two main folders:
+
+- `auth/` for authentication-related screens
+- `admin/` for admin screens, protected by an access token wrapper in `helper/protectAdmin.tsx`.
+
+### Dynamic Routing
+
+Example: `app/auth/forgotPassword/[token].tsx` for password reset routes.
+
+## Internal Page Navigation
+
+React Navigation is used for internal linking between screens.
+
+```bash
+import { Link, useNavigation } from "@react-navigation/native";
+```
+
+- Tabs are located in `app(tabs)/_layout.tsx`.
+- Update or switch tabs from this file as needed.
+
+## Styling with Tailwind CSS
+
+For styling, this project uses `twrnc` for Tailwind CSS utilities in JavaScript.
+
+```bash
+npm i twrnc
+```
+
+To use Tailwind styles:
+
+```javaScript
+import tw from 'twrnc';
+
+style={tw`w-full h-full`}
+```
+
+## Protecting Admin Routes
+
+### 1\. Set Up Axios for API Calls
+
+- Use `helper/protectAdmin.tsx` to guard admin routes based on `accessToken`.
+# react-native-project
