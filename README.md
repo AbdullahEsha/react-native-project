@@ -71,7 +71,7 @@ style={tw`w-full h-full`}
 
 ## Protecting Admin Routes
 
-### 1\. Set Up Axios for API Calls
+### 1\. Setup a wrapper to protect admin pages
 
 - Use `helper/protectAdmin.tsx` to guard admin routes based on `accessToken`.
 
