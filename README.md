@@ -33,9 +33,10 @@ Alternatively, you can run it on an Android device:
 
 ## Project Structure
 
-This project uses file-based routing, with two main folders:
+This project uses file-based routing, with three main folders:
 
-- `auth/` for authentication-related screens
+- `(tabs)/` for goto pages like homepage, login page etc.
+- `auth/` for authentication-related screens.
 - `admin/` for admin screens, protected by an access token wrapper in `helper/protectAdmin.tsx`.
 
 ### Dynamic Routing
